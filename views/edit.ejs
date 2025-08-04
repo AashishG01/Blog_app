@@ -1,0 +1,28 @@
+<%- include("partials/header") %>
+
+<div class="edit-post-container">
+  <h1>Edit Blog Post</h1>
+
+  <form action="/edit/<%= post.id %>" method="POST" class="blog-form">
+    <input
+      type="text"
+      name="title"
+      placeholder="Update blog title..."
+      class="input-title"
+      value="<%= post.title %>"
+      required
+    >
+
+    <textarea
+      name="content"
+      placeholder="Update blog content..."
+      class="input-content"
+      rows="10"
+      required
+    ><%= post.content %></textarea>
+
+    <button type="submit" class="btn-submit">Update Post</button>
+  </form>
+</div>
+
+<%- include("partials/footer") %>

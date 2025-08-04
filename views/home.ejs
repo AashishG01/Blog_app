@@ -1,0 +1,29 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container">
+  <div class="topbar">
+    <h1 class="title">Furious Blogs</h1>
+    <a href="/new" class="btn btn-primary">+ New Post</a>
+  </div>
+
+  <% if (posts.length === 0) { %>
+    <p class="no-posts">No posts yet. Click the button above to get started.</p>
+  <% } else { %>
+    <div class="posts-grid">
+      <% posts.forEach(post => { %>
+        <div class="post-card">
+          <h2><%= post.title %></h2>
+          <p><%= post.content %></p>
+          <div class="actions">
+            <a href="/edit/<%= post.id %>" class="btn btn-warning">Edit</a>
+            <form action="/delete/<%= post.id %>" method="POST" style="display:inline;">
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+</div>
+
+<%- include("partials/footer.ejs") %>

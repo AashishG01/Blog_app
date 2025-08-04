@@ -1,0 +1,27 @@
+<%- include("partials/header") %>
+
+<div class="new-post-container">
+  <h1>Create New Post</h1>
+
+  <form action="/create" method="POST" class="blog-form">
+    <input
+      type="text"
+      name="title"
+      class="input-title"
+      placeholder="Enter post title"
+      required
+    >
+
+    <textarea
+      name="content"
+      class="input-content"
+      placeholder="Write your content here..."
+      rows="10"
+      required
+    ></textarea>
+
+    <button type="submit" class="btn-submit">Publish</button>
+  </form>
+</div>
+
+<%- include("partials/footer") %>
